@@ -40,3 +40,18 @@ keymap.set("n", "<C-h>", ":<C-U>TmuxNavigateLeft<CR>", { silent = true })
 keymap.set("n", "<C-j>", ":<C-U>TmuxNavigateDown<CR>", { silent = true })
 keymap.set("n", "<C-k>", ":<C-U>TmuxNavigateUp<CR>", { silent = true })
 keymap.set("n", "<C-l>", ":<C-U>TmuxNavigateRight<CR>", { silent = true })
+
+-- custom keymaps for Supermaven commands
+vim.api.nvim_set_keymap(
+  "i",
+  "<Tab>",
+  'v:lua.require("supermaven-nvim").accept_suggestion()',
+  { expr = true, noremap = true }
+)
+vim.api.nvim_set_keymap(
+  "i",
+  "<C-]>",
+  'v:lua.require("supermaven-nvim").clear_suggestion()',
+  { expr = true, noremap = true }
+)
+vim.api.nvim_set_keymap("i", "<C-j>", 'v:lua.require("supermaven-nvim").accept_word()', { expr = true, noremap = true })
